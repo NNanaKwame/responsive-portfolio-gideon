@@ -81,7 +81,7 @@
                             <a href="https://www.instagram.com/deongrphx/" target="_blank" class="home__social-icon">
                                 <i class="uil uil-instagram-alt"></i>
                             </a>
-                            <a href="https://pin.it/1mOcs59mf" target="_blank" class="home__social-icon">
+                            <a href="https://www.pinterest.com/deongraphx/" target="_blank" class="home__social-icon">
                                 <i class="uil uil-parking-circle"></i>
                             </a>
                         </div>
@@ -100,8 +100,8 @@
 
                         <div class="home__data">
                             <h1 class="home__title">Hi, I'm Gideon</h1>
-                            <h3 class="home__subtitle">Frontend developer</h3>
-                            <p class="home__description">High level experience bringing all your graphic works from imagination to life</p>
+                            <h3 class="home__subtitle">Designer . Developer</h3>
+                            <p class="home__description">High level experience bringing all your works from imagination to life</p>
                             <a href="#contact" class="button button--flex">
                                 Contact Me <i class="uil uil-message button__icon"></i>
                             </a>
@@ -124,7 +124,7 @@
                 <span class="section__subtitle">My introduction</span>
 
                 <div class="about__container container grid">
-                    <img src="assets/img/about.jpg" alt="" class="about__img">
+                    <img src="assets/img/20250811-_MG_9902.JPG" alt="" class="about__img">
 
                     <div class="about__data">
                         <p class="about__description">An experienced designer with expertise in graphic design, UI/UX and front end development</p>
@@ -146,7 +146,7 @@
 
                         <div class="about__inbuttons">
                             <div class="about__buttons">
-                                <a download="" href="/assets/resume.pdf" class="button button--flex">
+                                <a download="" href="/assets/pdf/Gideon General CV (2).pdf" class="button button--flex">
                                     Download CV<i class="uil uil-download-alt button__icon"></i>
                                 </a>
                             </div>
@@ -735,12 +735,12 @@
             </section>
 
             <!--==================== TESTIMONIAL ====================-->
-            <section class="testimonial section">
+<!--             <section class="testimonial section">
                 <h2 class="section__title">Testimonial</h2>
                 <span class="section__subtitle">My client saying</span>
 
                 <div class="testimonial__container container swiper-container">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper"> -->
                         <!--==================== TESTIMONIAL 1 ====================-->
                         <!-- <div class="testimonial__content swiper-slide">
                             <div class="testimonial__data">
@@ -854,31 +854,30 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form grid">
+                    <form id="contact-form" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
-                                <label for="" class="contact__label">Name</label>
-                                <input type="text" class="contact__input">
+                                <label for="name" class="contact__label">Name</label>
+                                <input type="text" class="contact__input" id="name" name="name" required>
                             </div>
                             <div class="contact__content">
-                                <label for="" class="contact__label">Email</label>
-                                <input type="email" class="contact__input">
+                                <label for="email" class="contact__label">Email</label>
+                                <input type="email" class="contact__input" id="email" name="email" required>
                             </div>
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Project</label>
-                            <input type="text" class="contact__input">
+                            <label for="project" class="contact__label">Project</label>
+                            <input type="text" class="contact__input" id="project" name="project" required>
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Message</label>
-                            <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                            <label for="message" class="contact__label">Message</label>
+                            <textarea id="message" name="message" cols="0" rows="7" class="contact__input" required></textarea>
                         </div>
-
                         <div>
-                            <a href="#" class="button button--flex">
+                            <button type="submit" class="button button--flex">
                                 Send Message
                                 <i class="uil uil-message button__icon"></i>
-                            </a>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -930,6 +929,7 @@
 
         <!--==================== SWIPER JS ====================-->
         <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>

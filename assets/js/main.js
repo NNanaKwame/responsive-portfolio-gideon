@@ -189,3 +189,150 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 }) 
+
+/*==================== CONTACT FORM ====================*/
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const project = formData.get('project');
+        const message = formData.get('message');
+        
+        // Simple validation
+        if (!name || !email || !project || !message) {
+            showAlert('Please fill in all fields', 'error');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showAlert('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        // Send email via EmailJS
+        sendEmailViaEmailJS(name, email, project, message);
+    });
+}
+
+/*==================== EMAIL SENDING FUNCTION ====================*/
+function sendEmailViaEmailJS(name, email, project, message) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+
+    // Update button state
+    submitButton.innerHTML = '<i class="uil uil-envelope-open button__icon"></i> Sending...';
+    submitButton.disabled = true;
+
+    // Prepare template parameters
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        project: project,
+        message: message
+    };
+
+    // Send to YOU (main template)
+    emailjs.send(
+        "service_ueicxic",      // Replace with your EmailJS service ID
+        "template_1o0l6bw",     // Replace with your EmailJS template ID
+        templateParams,
+        "Dks6rHZgK9qWNU7fF"       // Replace with your EmailJS public key
+    ).then(() => {
+        // ALSO send auto-reply to the user
+        sendAutoReply(name, email);
+
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+        showAlert('Your message has been sent successfully!', 'success');
+        contactForm.reset();
+    }).catch((error) => {
+        console.error("EmailJS Error:", error);
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+        showAlert('Oops! Something went wrong. Please try again later.', 'error');
+    });
+}
+
+/*==================== AUTO-REPLY FUNCTION ====================*/
+function sendAutoReply(name, email) {
+    const autoReplyParams = {
+        to_name: name,
+        to_email: email
+    };
+
+    emailjs.send(
+        "service_ueicxic",          // same service
+        "template_onks9is",  // a new template for auto-reply
+        autoReplyParams,
+        "Dks6rHZgK9qWNU7fF"
+    ).catch((err) => {
+        console.error("Auto-reply failed:", err);
+    });
+}
+
+/*==================== ALERT SYSTEM ====================*/
+function showAlert(message, type = 'info') {
+    // Remove existing alerts
+    const existingAlert = document.querySelector('.custom-alert');
+    if (existingAlert) {
+        existingAlert.remove();
+    }
+    
+    // Create alert element
+    const alert = document.createElement('div');
+    alert.className = `custom-alert alert-${type}`;
+    alert.innerHTML = `
+        <div class="alert-content">
+            <span class="alert-message">${message}</span>
+            <button class="alert-close" onclick="this.parentElement.parentElement.remove()">
+                <i class="uil uil-times"></i>
+            </button>
+        </div>
+    `;
+    
+    // Add styles if not already added
+    if (!document.querySelector('#alert-styles')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'alert-styles';
+        styleSheet.textContent = `
+            .custom-alert {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 10000;
+                max-width: 400px;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                animation: slideInRight 0.3s ease-out;
+            }
+            .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .alert-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .alert-info { background-color: #cce7ff; color: #004085; border: 1px solid #99d3ff; }
+            .alert-content { display: flex; justify-content: space-between; align-items: flex-start; }
+            .alert-message { flex: 1; margin-right: 1rem; }
+            .alert-close { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: inherit; }
+            @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @media (max-width: 480px) { .custom-alert { left: 20px; right: 20px; max-width: none; } }
+        `;
+        document.head.appendChild(styleSheet);
+    }
+    
+    // Add alert to page
+    document.body.appendChild(alert);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (alert.parentElement) {
+            alert.remove();
+        }
+    }, 5000);
+}
