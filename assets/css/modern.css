@@ -11,8 +11,12 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Crucial: lets clicks pass through to your buttons/links */
-    z-index: -1; /* Keeps it behind your text/content */
+    pointer-events: none;
+    z-index: -1;
+    /* This forces the browser to use hardware acceleration */
+    will-change: transform;
+    /* Prevents the particle canvas from causing scroll lag */
+    backface-visibility: hidden;
 }
 
 /*==================== VARIABLES ====================*/
@@ -76,13 +80,13 @@ html {
 }
 
 [data-theme="light"] .ag-slide-wrapper {
-    background: var(--bg-color); 
-    border: 1px solid rgba(0, 0, 0, 0.02); 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+    background: var(--bg-color);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="light"] .ag-slide-wrapper img {
-    opacity: 0.95; 
+    opacity: 0.95;
 }
 
 [data-theme="light"] .ag-slider-controls button {
@@ -120,6 +124,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    width: 100%;
 }
 
 body::before {
@@ -238,9 +243,17 @@ button {
 
 /*==================== PERPETUAL TITLE FLOAT ====================*/
 @keyframes title-float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero__title-animated {
@@ -258,12 +271,29 @@ button {
 
 /* Custom bezier curve and micro-rotations for an elastic, high-end feel */
 @keyframes soft-premium-shake {
-    0%   { transform: scale(1.05) translateX(0); }
-    20%  { transform: scale(1.05) translateX(-2px) rotate(-1deg); }
-    40%  { transform: scale(1.05) translateX(2px) rotate(1deg); }
-    60%  { transform: scale(1.05) translateX(-1px) rotate(-0.5deg); }
-    80%  { transform: scale(1.05) translateX(1px) rotate(0.5deg); }
-    100% { transform: scale(1.05) translateX(0) rotate(0); }
+    0% {
+        transform: scale(1.05) translateX(0);
+    }
+
+    20% {
+        transform: scale(1.05) translateX(-2px) rotate(-1deg);
+    }
+
+    40% {
+        transform: scale(1.05) translateX(2px) rotate(1deg);
+    }
+
+    60% {
+        transform: scale(1.05) translateX(-1px) rotate(-0.5deg);
+    }
+
+    80% {
+        transform: scale(1.05) translateX(1px) rotate(0.5deg);
+    }
+
+    100% {
+        transform: scale(1.05) translateX(0) rotate(0);
+    }
 }
 
 .button--outline {
@@ -399,9 +429,17 @@ button {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero__subtitle {
@@ -482,7 +520,9 @@ button {
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
 }
 
 .about__stats {
@@ -800,25 +840,25 @@ button {
 
 .antigravity-swiper {
     width: 100%;
-    overflow: visible; 
+    overflow: visible;
     padding-bottom: var(--spacing-sm);
 }
 
 .ag-slide {
-    width: 90% !important; 
-    max-width: 900px; 
+    width: 90% !important;
+    max-width: 900px;
     transition: transform var(--transition-medium);
 }
 
 .ag-slide-wrapper {
     position: relative;
     aspect-ratio: 4 / 5;
-    border-radius: 2rem; 
+    border-radius: 2rem;
     overflow: hidden;
     background: #000;
-    border: 1px solid rgba(255, 255, 255, 0.08); 
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); 
-    cursor: none; 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    cursor: none;
 }
 
 .ag-slide-wrapper img {
@@ -867,14 +907,14 @@ button {
     display: flex;
     align-items: flex-end;
     padding: var(--spacing-md);
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .ag-typed-text {
     font-size: var(--text-md);
     color: #fff;
-    font-family: monospace; 
+    font-family: monospace;
 }
 
 .ag-copy-wrapper {
@@ -888,7 +928,7 @@ button {
 .ag-copy-content {
     position: relative;
     flex: 1;
-    min-height: 120px; 
+    min-height: 120px;
 }
 
 .ag-copy {
@@ -932,7 +972,7 @@ button {
 }
 
 .ag-arrow-link:hover {
-    gap: 0.75rem; 
+    gap: 0.75rem;
 }
 
 .ag-slider-controls {
@@ -1106,12 +1146,15 @@ textarea.form__input {
     right: 1.5rem;
     bottom: -20%;
     width: 45px;
-    height: 45px; /* Locks the circle to a perfect aspect ratio */
+    height: 45px;
+    /* Locks the circle to a perfect aspect ratio */
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
     border-radius: 50%;
     display: flex;
-    align-items: center; /* Centers icon vertically */
-    justify-content: center; /* Centers icon horizontally */
+    align-items: center;
+    /* Centers icon vertically */
+    justify-content: center;
+    /* Centers icon horizontally */
     z-index: 50;
     transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
@@ -1123,13 +1166,15 @@ textarea.form__input {
 
 .scrollup:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(124, 77, 255, 0.5); /* Deepens shadow on hover */
+    box-shadow: 0 8px 25px rgba(124, 77, 255, 0.5);
+    /* Deepens shadow on hover */
 }
 
 .scrollup i {
     color: #fff;
     font-size: 1.5rem;
-    line-height: 1; /* Prevents weird icon vertical stretching */
+    line-height: 1;
+    /* Prevents weird icon vertical stretching */
 }
 
 /*==================== GLOBAL ANIMATIONS ====================*/
@@ -1147,9 +1192,17 @@ textarea.form__input {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .floating {
@@ -1158,7 +1211,9 @@ textarea.form__input {
 
 /*==================== MEDIA QUERIES ====================*/
 @media (max-width: 768px) {
-    .nav__toggle, .nav__close {
+
+    .nav__toggle,
+    .nav__close {
         display: block;
     }
 
@@ -1166,25 +1221,22 @@ textarea.form__input {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 75%;
-        max-width: 320px;
+        width: 100%;
+        /* Changed from 75% to 100% to fill the frame */
         height: 100vh;
-        
-        /* Uses your solid background to prevent the nested blur crash */
-        background: var(--bg-color); 
-        border-left: 1px solid var(--surface-border);
-        
+        background: var(--bg-color);
+        z-index: 1000;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: 1000; 
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        
-        /* Note: backdrop-filter has been intentionally removed here */
+        /* Ensure no padding pushes it outside the viewport */
+        box-sizing: border-box;
     }
 
     .nav__menu.show-menu {
-        right: 0 !important; 
+        right: 0 !important;
     }
 
     .nav__close {
@@ -1253,7 +1305,9 @@ textarea.form__input {
         flex-wrap: wrap;
     }
 
-    .contact__grid, .contact__row, .project-cta__container {
+    .contact__grid,
+    .contact__row,
+    .project-cta__container {
         grid-template-columns: 1fr;
     }
 
@@ -1275,10 +1329,12 @@ textarea.form__input {
     .showcase__grid {
         grid-template-columns: 1fr;
     }
+
     .ag-slide {
-        width: 75% !important; 
+        width: 75% !important;
     }
+
     .ag-slide-wrapper {
-        aspect-ratio: 16 / 10; 
+        aspect-ratio: 16 / 10;
     }
-}   
+}

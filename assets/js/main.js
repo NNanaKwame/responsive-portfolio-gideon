@@ -422,56 +422,63 @@ function initTypewriter() {
 
 function initParticles() {
     const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const mouse = { x: null, y: null, radius: 150 }; // Interaction radius
+    const mouse = { x: null, y: null, radius: 100 }; // Reduced radius for mobile
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
     class Particle {
         constructor() {
-            this.baseX = Math.random() * canvas.width;
-            this.baseY = Math.random() * canvas.height;
-            this.x = this.baseX;
-            this.y = this.baseY;
-            this.size = Math.random() * 2 + 1;
-            this.density = (Math.random() * 30) + 1;
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.baseX = this.x;
+            this.baseY = this.y;
+            this.size = Math.random() * 1.5 + 0.5;
         }
         draw() {
-            ctx.fillStyle = 'rgba(124, 77, 255, 0.5)';
+            ctx.fillStyle = 'rgba(124, 77, 255, 0.4)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
         }
         update() {
-            // Calculate distance to mouse
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
             
-            // "Antigravity" Repulsion Force
             if (distance < mouse.radius) {
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
+                let angle = Math.atan2(dy, dx);
                 let force = (mouse.radius - distance) / mouse.radius;
-                this.x -= forceDirectionX * force * 10;
-                this.y -= forceDirectionY * force * 10;
+                this.x -= Math.cos(angle) * force * 5;
+                this.y -= Math.sin(angle) * force * 5;
             } else {
-                // Return to original position
-                if (this.x !== this.baseX) this.x += (this.baseX - this.x) * 0.05;
-                if (this.y !== this.baseY) this.y += (this.baseY - this.y) * 0.05;
+                this.x += (this.baseX - this.x) * 0.03;
+                this.y += (this.baseY - this.y) * 0.03;
             }
         }
     }
 
-    // Initialize particle field
-    for (let i = 0; i < 150; i++) particles.push(new Particle());
+    // Spawn fewer particles on mobile for performance
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
 
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
+    // Combined Mouse and Touch handling
+    const updateMouse = (e) => {
+        mouse.x = e.clientX || (e.touches && e.touches[0].clientX);
+        mouse.y = e.clientY || (e.touches && e.touches[0].clientY);
+    };
+
+    window.addEventListener('mousemove', updateMouse);
+    window.addEventListener('touchmove', updateMouse, { passive: true });
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
