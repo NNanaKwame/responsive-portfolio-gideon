@@ -420,19 +420,13 @@ function initTypewriter() {
     }
 }
 
+/*==================== PARTICLE EFFECT ====================*/
 function initParticles() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const mouse = { x: null, y: null, radius: 100 }; // Reduced radius for mobile
-
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+    const mouse = { x: null, y: null, radius: 100 };
 
     class Particle {
         constructor() {
@@ -468,11 +462,23 @@ function initParticles() {
         }
     }
 
-    // Spawn fewer particles on mobile for performance
-    for (let i = 0; i < 60; i++) particles.push(new Particle());
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Dynamically adjust count based on screen width
+        const particleCount = Math.floor(window.innerWidth / 10); 
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
 
-    // Combined Mouse and Touch handling
+    window.addEventListener('resize', resize);
+    resize(); // Initialize particles based on screen size
+
     const updateMouse = (e) => {
+        // Handle touch events or mouse events
         mouse.x = e.clientX || (e.touches && e.touches[0].clientX);
         mouse.y = e.clientY || (e.touches && e.touches[0].clientY);
     };
@@ -482,7 +488,10 @@ function initParticles() {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
+        particles.forEach(p => { 
+            p.update(); 
+            p.draw(); 
+        });
         requestAnimationFrame(animate);
     }
     animate();
