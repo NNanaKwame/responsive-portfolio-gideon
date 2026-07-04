@@ -424,39 +424,57 @@ function initParticles() {
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
+    const mouse = { x: null, y: null, radius: 150 }; // Interaction radius
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     class Particle {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 1 - 0.5;
-            this.alpha = 1;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            this.alpha -= 0.01;
+        constructor() {
+            this.baseX = Math.random() * canvas.width;
+            this.baseY = Math.random() * canvas.height;
+            this.x = this.baseX;
+            this.y = this.baseY;
+            this.size = Math.random() * 2 + 1;
+            this.density = (Math.random() * 30) + 1;
         }
         draw() {
-            ctx.fillStyle = `rgba(124, 77, 255, ${this.alpha})`;
+            ctx.fillStyle = 'rgba(124, 77, 255, 0.5)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
         }
+        update() {
+            // Calculate distance to mouse
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // "Antigravity" Repulsion Force
+            if (distance < mouse.radius) {
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let force = (mouse.radius - distance) / mouse.radius;
+                this.x -= forceDirectionX * force * 10;
+                this.y -= forceDirectionY * force * 10;
+            } else {
+                // Return to original position
+                if (this.x !== this.baseX) this.x += (this.baseX - this.x) * 0.05;
+                if (this.y !== this.baseY) this.y += (this.baseY - this.y) * 0.05;
+            }
+        }
     }
 
+    // Initialize particle field
+    for (let i = 0; i < 150; i++) particles.push(new Particle());
+
     window.addEventListener('mousemove', (e) => {
-        particles.push(new Particle(e.clientX, e.clientY));
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
     });
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles = particles.filter(p => p.alpha > 0);
         particles.forEach(p => { p.update(); p.draw(); });
         requestAnimationFrame(animate);
     }
