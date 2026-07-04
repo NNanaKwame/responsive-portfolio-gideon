@@ -5,18 +5,32 @@ html {
     scroll-behavior: smooth;
 }
 
+/*==================== STRICT MOBILE CONTAINMENT ====================*/
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* This is the most important fix */
+    position: relative;
+}
+
+* {
+    box-sizing: border-box;
+    /* Prevent any element from exceeding the viewport width */
+    max-width: 100vw;
+}
+
 #particle-canvas {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw !important;
+    height: 100vh !important;
     pointer-events: none;
     z-index: -1;
-    /* This forces the browser to use hardware acceleration */
     will-change: transform;
-    /* Prevents the particle canvas from causing scroll lag */
-    backface-visibility: hidden;
 }
 
 /*==================== VARIABLES ====================*/
@@ -1217,26 +1231,28 @@ textarea.form__input {
         display: block;
     }
 
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        /* Changed from 75% to 100% to fill the frame */
-        height: 100vh;
-        background: var(--bg-color);
-        z-index: 1000;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* Ensure no padding pushes it outside the viewport */
-        box-sizing: border-box;
-    }
+    @media (max-width: 768px) {
+        .nav__menu {
+            position: fixed;
+            top: 0;
+            right: -100vw;
+            /* Anchor to viewport width */
+            width: 100vw;
+            /* Force to screen width */
+            height: 100vh;
+            background: var(--bg-color);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .nav__menu.show-menu {
-        right: 0 !important;
+        .nav__menu.show-menu {
+            right: 0 !important;
+            /* Forces it to snap to the edge */
+        }
     }
 
     .nav__close {
