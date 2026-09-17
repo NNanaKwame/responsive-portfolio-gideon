@@ -474,6 +474,23 @@ button {
     flex-wrap: wrap;
 }
 
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+}
+
+.availability span {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.7);
+}
+
 .hero__scroll {
     grid-column: 1 / -1;
     display: flex;
@@ -846,6 +863,37 @@ button {
     color: var(--accent-secondary);
 }
 
+/*==================== PROCESS ====================*/
+.process__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.process__step {
+    min-height: 230px;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.process__step > span {
+    font-family: monospace;
+    color: var(--accent-secondary);
+    font-size: var(--text-xs);
+    margin-bottom: auto;
+}
+
+.process__step h3 {
+    font-size: var(--text-md);
+    margin: var(--spacing-sm) 0 var(--spacing-xs);
+}
+
+.process__step p {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+}
+
 /*==================== ANTIGRAVITY SHOWCASE ====================*/
 .showcase__grid {
     display: grid;
@@ -1009,6 +1057,15 @@ button {
     font-size: var(--text-sm);
     margin-bottom: var(--spacing-sm);
     max-width: 500px;
+}
+
+.ag-project-meta {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent-secondary);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .ag-arrow-link {
@@ -1404,6 +1461,10 @@ textarea.form__input {
         min-height: 240px;
     }
 
+    .process__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .ag-copy-wrapper {
         flex-direction: column;
         align-items: stretch;
@@ -1418,6 +1479,22 @@ textarea.form__input {
         flex-direction: column;
         text-align: center;
     }
+}
+
+@media (max-width: 480px) {
+    .process__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process__step {
+        min-height: 185px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    #particle-canvas { display: none; }
 }
 
 @media (min-width: 768px) {
