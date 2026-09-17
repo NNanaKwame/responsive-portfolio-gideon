@@ -1510,3 +1510,214 @@ textarea.form__input {
         aspect-ratio: 16 / 10;
     }
 }
+
+/* =========================================================================
+   MOBILE PERFORMANCE PATCH
+   Append this to the very end of assets/css/modern.css so it wins on
+   specificity/order without editing the existing rules.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Particle canvas
+   `will-change: transform` on a fixed, full-viewport canvas promotes it to
+   its own compositor layer permanently, even though nothing ever transforms
+   it. On a phone that is a wasted full-screen texture in GPU memory.
+   The JS now removes the canvas entirely on mobile; this is the CSS backstop.
+   ------------------------------------------------------------------------- */
+#particle-canvas {
+    will-change: auto;
+}
+
+@media (max-width: 899px) {
+    #particle-canvas {
+        display: none !important;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   2. backdrop-filter
+   Every blurred surface forces the browser to read back and blur whatever is
+   painted behind it, on every frame that surface moves or the page scrolls.
+   The fixed header is the worst case — it blurs continuously while scrolling.
+   Mobile GPUs handle this badly. Below 768px we swap the glass look for a
+   solid tint that is visually close and costs nothing.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    .header,
+    .header.scroll-header,
+    .stat,
+    .ag-play-cursor,
+    .nav__menu {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .header,
+    .header.scroll-header {
+        background-color: rgba(5, 5, 5, 0.92);
+    }
+
+    .stat {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    body[data-theme="light"] .header,
+    body[data-theme="light"] .header.scroll-header {
+        background-color: rgba(255, 255, 255, 0.94);
+    }
+}
+
+/* -------------------------------------------------------------------------
+   3. Ambient infinite animations
+   `float`, `title-float` and the caret `blink` never stop. Each one keeps a
+   compositor layer alive and prevents the phone from idling the GPU, which
+   shows up as battery drain and as jank when they compete with scrolling.
+   Keep them on desktop, drop them on small screens.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    .hero__title,
+    .hero__title-animated,
+    .floating {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .button:hover {
+        animation: none !important;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   4. Below-the-fold rendering cost
+   `content-visibility: auto` lets the browser skip layout and paint for
+   sections that are scrolled out of view. `contain-intrinsic-size` reserves
+   a placeholder height so the scrollbar doesn't jump around.
+   Note: #home and #about are deliberately excluded — they're above or near
+   the fold, and the typewriter needs #about laid out.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    #services,
+    #photography,
+    .project-cta,
+    .footer {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 800px;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   5. Images
+   Stops decoded images from blowing past their container and makes the
+   browser reserve the right box before the bytes land (needs width/height
+   attributes in the HTML — see the notes).
+   ------------------------------------------------------------------------- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.portfolio__img img,
+.project-preview img,
+.photography__sample img {
+    content-visibility: auto;
+}
+
+/* -------------------------------------------------------------------------
+   6. Alert styles
+   Moved out of main.js. The old code appended a <style> element the first
+   time an alert fired, which invalidates every style on the page at exactly
+   the moment the user is waiting on the form.
+   ------------------------------------------------------------------------- */
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 380px;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(20, 20, 20, 0.95);
+    animation: alert-slide-in 0.3s ease-out;
+    font-family: inherit;
+}
+
+.alert-success {
+    background-color: rgba(0, 60, 40, 0.95);
+    color: #4ade80;
+}
+
+.alert-error {
+    background-color: rgba(70, 20, 20, 0.95);
+    color: #f87171;
+}
+
+.alert-info {
+    background-color: rgba(0, 50, 60, 0.95);
+    color: #67e8f9;
+}
+
+.alert-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: inherit;
+    line-height: 1;
+    padding: 0;
+}
+
+.alert-close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+@keyframes alert-slide-in {
+    from {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-alert {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   7. Reduced motion
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
