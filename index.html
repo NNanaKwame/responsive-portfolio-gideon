@@ -3,725 +3,663 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gideon Nyarko | Designer & Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gideon Nyarko — Engineer, Designer, Photographer</title>
     <meta name="description"
-        content="Gideon Nyarko — Designer & Developer specializing in UI/UX and front-end development.">
+        content="Gideon Nyarko is a Ghana-based computer engineer, designer and photographer. Full-stack development, data analysis, brand design and event photography.">
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Gideon Nyarko | Designer & Developer">
-    <meta property="og:description" content="Distinctive digital experiences for ambitious brands, businesses, and communities.">
+    <meta property="og:title" content="Gideon Nyarko — Engineer, Designer, Photographer">
+    <meta property="og:description"
+        content="Full-stack development, data analysis, brand design and event photography. Based in Accra.">
     <meta property="og:url" content="https://nkgnyarko.netlify.app/">
     <meta property="og:image" content="https://nkgnyarko.netlify.app/assets/img/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gideon Nyarko | Designer & Developer">
-    <meta name="twitter:description" content="Distinctive digital experiences for ambitious brands, businesses, and communities.">
+    <meta name="twitter:title" content="Gideon Nyarko — Engineer, Designer, Photographer">
+    <meta name="twitter:description"
+        content="Full-stack development, data analysis, brand design and event photography. Based in Accra.">
     <meta name="twitter:image" content="https://nkgnyarko.netlify.app/assets/img/profile.jpg">
+    <meta name="theme-color" content="#0B0A09">
+
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://unicons.iconscout.com">
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://images.pixieset.com">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/modern.css">
+    <link rel="preload" as="image" href="assets/img/profile.jpg" fetchpriority="high">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&display=swap">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
-    <!-- Header -->
-     <canvas id="particle-canvas"></canvas>
-    <header class="header" id="header">
-        <nav class="nav container flex">
-            <a href="#home" class="nav__logo">Gideon</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list flex">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                    <li class="nav__item"><a href="#photography" class="nav__link">Photography</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+    <!-- Icon sprite. Replaces the Unicons CDN stylesheet entirely. -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-external" viewBox="0 0 24 24">
+            <path d="M8 16 16 8M9 8h7v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-down" viewBox="0 0 24 24">
+            <path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-up" viewBox="0 0 24 24">
+            <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+            <path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="none" stroke="currentColor"
+                stroke-width="1.6" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9.75h4v11.5H3zM10 9.75h3.8v1.57h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75v6.13h-4v-5.43c0-1.3-.02-2.96-1.9-2.96-1.9 0-2.2 1.4-2.2 2.87v5.52h-4z" />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor"
+                stroke-width="1.6" />
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+        </symbol>
+        <symbol id="i-pinterest" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M12 2a10 10 0 0 0-3.65 19.31c-.09-.8-.17-2.03.03-2.9.19-.79 1.22-5.03 1.22-5.03s-.31-.62-.31-1.55c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.87 3.47-.25 1.04.52 1.89 1.55 1.89 1.86 0 3.29-1.96 3.29-4.79 0-2.5-1.8-4.25-4.37-4.25-2.98 0-4.73 2.23-4.73 4.54 0 .9.35 1.86.78 2.39.09.1.1.19.07.3l-.28 1.15c-.05.18-.15.22-.34.13-1.27-.59-2.06-2.44-2.06-3.93 0-3.2 2.32-6.13 6.7-6.13 3.52 0 6.25 2.5 6.25 5.85 0 3.49-2.2 6.3-5.26 6.3-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.98-1.26 2.65A10 10 0 1 0 12 2z" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="m3.8 7 8.2 6 8.2-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22.5l5.7-1.5A9.9 9.9 0 1 0 12.04 2zm0 1.9a8 8 0 1 1-4.07 14.9l-.3-.18-3.4.9.9-3.3-.2-.32A8 8 0 0 1 12.04 3.9zm-3.2 4c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.72 4.2 3.7 2.08.82 2.5.66 2.95.62.45-.04 1.46-.6 1.66-1.17.2-.58.2-1.07.15-1.18-.06-.1-.22-.16-.46-.28-.24-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.55.12s-.63.8-.78.96c-.14.16-.28.18-.52.06a6.7 6.7 0 0 1-1.98-1.22 7.4 7.4 0 0 1-1.36-1.7c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.17.04-.31-.02-.43-.06-.12-.54-1.34-.75-1.83-.19-.46-.38-.4-.53-.4z" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+            <path d="M6 3.5h3l1.5 4-2 1.4a12 12 0 0 0 6.6 6.6l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 5.7 2 2 0 0 1 6 3.5z"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+            <path d="M12 21s6.5-5.6 6.5-10.2A6.5 6.5 0 0 0 5.5 10.8C5.5 15.4 12 21 12 21z" fill="none"
+                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            <circle cx="12" cy="10.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+        </symbol>
+    </svg>
+
+    <header class="masthead" id="masthead">
+        <div class="shell masthead__inner">
+            <a href="#home" class="wordmark">
+                Gideon Nyarko
+                <span>Accra, GH</span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Primary">
+                <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+                    <svg class="ico" aria-hidden="true"><use href="#i-close" /></svg>
+                </button>
+                <ul class="nav__list">
+                    <li><a href="#about" class="nav__link"><i>01</i>About</a></li>
+                    <li><a href="#skills" class="nav__link"><i>02</i>Skills</a></li>
+                    <li><a href="#services" class="nav__link"><i>03</i>Services</a></li>
+                    <li><a href="#process" class="nav__link"><i>04</i>Process</a></li>
+                    <li><a href="#work" class="nav__link"><i>05</i>Work</a></li>
+                    <li><a href="#photography" class="nav__link"><i>06</i>Photography</a></li>
+                    <li><a href="#contact" class="nav__link"><i>07</i>Contact</a></li>
                 </ul>
-                <i class="uil uil-times nav__close" id="nav-close" role="button" aria-label="Close menu"
-                    tabindex="0"></i>
-            </div>
+            </nav>
 
-            <div class="nav__btns flex">
-                <i class="uil uil-moon change-theme" id="theme-button" role="button" aria-label="Toggle dark mode"
-                    tabindex="0"></i>
-                <i class="uil uil-apps nav__toggle" id="nav-toggle" role="button" aria-label="Open menu"
-                    aria-expanded="false" tabindex="0"></i>
+            <div class="masthead__tools">
+                <button class="icon-btn" id="theme-button" type="button" aria-label="Switch to light mode">
+                    <svg class="ico ico--moon" aria-hidden="true"><use href="#i-moon" /></svg>
+                    <svg class="ico ico--sun" aria-hidden="true"><use href="#i-sun" /></svg>
+                </button>
+                <button class="icon-btn nav__open" id="nav-open" type="button" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="nav">
+                    <svg class="ico" aria-hidden="true"><use href="#i-menu" /></svg>
+                </button>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="main">
-        <!-- Hero / Home -->
-        <section class="hero section" id="home">
-            <div class="container hero__container">
-                <div class="hero__social">
-                    <a href="https://www.linkedin.com/in/nkgnyarko" target="_blank" rel="noopener"
-                        aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
-                    <a href="https://www.instagram.com/deongrphx/" target="_blank" rel="noopener"
-                        aria-label="Instagram"><i class="uil uil-instagram-alt"></i></a>
-                    <a href="https://www.pinterest.com/deongraphx/" target="_blank" rel="noopener"
-                        aria-label="Pinterest"><i class="uil uil-pinterest-alt"></i></a>
-                </div>
+    <main id="main">
 
-                <div class="hero__blob fade-in">
-                    <svg viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <clipPath id="blobClip">
-                                <path
-                                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                            </clipPath>
-                        </defs>
-                        <g clip-path="url(#blobClip)">
-                            <image href="assets/img/profile.jpg" x="0" y="0" width="200" height="187"
-                                preserveAspectRatio="xMidYMid slice" />
-                        </g>
-                        <path
-                            d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                            fill="none" stroke="var(--accent-primary)" stroke-width="2" />
-                    </svg>
-                </div>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="home">
+            <div class="shell hero__grid">
+                <div class="hero__text">
+                    <p class="status" data-anim="1">
+                        <span class="status__dot" aria-hidden="true"></span>
+                        Available for select freelance projects
+                    </p>
 
-                <div class="hero__data">
-                    <h1 class="hero__title">Hi, I'm Gideon</h1>
-                    <p class="hero__subtitle fade-in">Designer &middot; Developer</p>
-                    <p class="hero__description fade-in">I design and build distinctive digital experiences for ambitious brands, businesses, and communities.</p>
-                    <div class="hero__buttons fade-in">
-                        <a href="#contact" class="button">Contact Me <i class="uil uil-message button__icon"
-                                aria-hidden="true"></i></a>
-                        <a href="assets/resume.pdf" download class="button button--outline">Download CV <i
-                                class="uil uil-import button__icon" aria-hidden="true"></i></a>
+                    <h1 class="hero__title">
+                        <span data-anim="2">I build the software</span>
+                        <span data-anim="3">and shoot the pictures.</span>
+                    </h1>
+
+                    <p class="hero__lede" data-anim="4">
+                        Computer engineer, designer and photographer based in Accra. I work across
+                        full-stack development, data analysis, brand design and event photography —
+                        usually on the same project.
+                    </p>
+
+                    <div class="hero__actions" data-anim="5">
+                        <a href="#contact" class="btn btn--solid">Start a project</a>
+                        <a href="assets/resume.pdf" download class="btn">Download CV</a>
                     </div>
-                    <p class="availability fade-in"><span aria-hidden="true"></span> Available for select freelance projects</p>
+
+                    <ul class="hero__meta" data-anim="6">
+                        <li><b>4+</b> years working</li>
+                        <li><b>30+</b> projects delivered</li>
+                        <li><b>15+</b> certifications</li>
+                    </ul>
                 </div>
 
-                <a href="#about" class="hero__scroll fade-in">
-                    <span>Scroll down</span>
-                    <i class="uil uil-arrow-down" aria-hidden="true"></i>
+                <figure class="hero__portrait" data-anim="3">
+                    <img src="assets/img/profile.jpg" alt="Gideon Nyarko" fetchpriority="high" decoding="async">
+                    <figcaption>Currently: Data Assurance &amp; Analysis, EY</figcaption>
+                </figure>
+            </div>
+
+            <div class="shell">
+                <a href="#about" class="hero__scroll" data-anim="6">
+                    <svg class="ico" aria-hidden="true"><use href="#i-down" /></svg>
+                    Read on
                 </a>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="about section" id="about">
-            <div class="container">
-                <span class="section__eyebrow fade-in">My introduction</span>
-                <h2 class="section__title fade-in">About Me</h2>
+        <!-- ===================== 01 ABOUT ===================== -->
+        <section class="band" id="about">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">01 <span>/</span> About</p>
+                    <h2 class="band__title">Two disciplines, one desk</h2>
+                </header>
 
-                <div class="about__container grid fade-in">
-                    <div class="about__image floating">
-                        <img src="assets/img/20250811-_MG_9902.JPG" alt="Portrait of Gideon Nyarko" loading="lazy" width="1200" height="1500">
-                    </div>
-
-                    <div class="about__content">
-                        <p class="about__text">
-                            Highly analytical Full-Stack Engineer and Designer specializing in user-centric
-                            architecture, seamless backend integrations, and advanced data analysis. I combine rigorous,
-                            cross-platform engineering with an editorial design aesthetic to build premium, scalable
-                            digital products and intelligent data workflows for my clients.
+                <div class="about">
+                    <div class="about__body reveal">
+                        <p class="lede">
+                            I'm a full-stack engineer and designer working on user-centric architecture,
+                            backend integrations and data analysis. The engineering side is rigorous and
+                            cross-platform; the design side is editorial. Most of my best work happens where
+                            those two overlap.
+                        </p>
+                        <p>
+                            That overlap is the reason clients come to me: I can take a project from the
+                            first conversation through the visual direction, the build, and the photography
+                            that ends up on it — without three separate handovers where the intent gets lost.
                         </p>
 
-                        <div class="about__stats flex">
-                            <div class="stat">
-                                <span class="stat__number">4+</span>
-                                <span class="stat__label">Years Exp.</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">30+</span>
-                                <span class="stat__label">Projects</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">15+</span>
-                                <span class="stat__label">Certifications</span>
-                            </div>
-                        </div>
-
-                        <div class="about__buttons flex">
-                            <a href="assets/resume.pdf" download class="button">Download CV <i
-                                    class="uil uil-import button__icon" aria-hidden="true"></i></a>
+                        <div class="about__links">
+                            <a href="assets/resume.pdf" download class="btn">Download CV</a>
                             <a href="https://www.credly.com/users/gideon-nyarko" target="_blank" rel="noopener"
-                                class="button button--outline">Credly Badges <i
-                                    class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                                class="btn">Verified badges
+                                <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></a>
                         </div>
                     </div>
+
+                    <figure class="about__portrait reveal">
+                        <img src="assets/img/20250811-_MG_9902.JPG" alt="Gideon Nyarko at work" loading="lazy"
+                            decoding="async">
+                    </figure>
                 </div>
 
-                <!-- Qualification -->
-                <div class="qualification fade-in">
-                    <div class="qualification__tabs">
-                        <button class="qualification__button qualification__active" data-target="#education">
-                            <i class="uil uil-graduation-cap" aria-hidden="true"></i> Education
-                        </button>
-                        <button class="qualification__button" data-target="#work">
-                            <i class="uil uil-briefcase-alt" aria-hidden="true"></i> Work
-                        </button>
+                <div class="timeline reveal">
+                    <div class="timeline__tabs" role="tablist" aria-label="Background">
+                        <button class="timeline__tab is-on" role="tab" id="tab-work" aria-selected="true"
+                            aria-controls="panel-work" data-target="panel-work">Work</button>
+                        <button class="timeline__tab" role="tab" id="tab-education" aria-selected="false"
+                            aria-controls="panel-education" data-target="panel-education">Education</button>
                     </div>
 
-                    <div class="qualification__content qualification__active" data-content id="education">
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2022 - 2025</span>
-                                <h3 class="qualification__title">BSc Computer Engineering</h3>
-                                <span class="qualification__subtitle">KNUST</span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2026</span>
-                                <h3 class="qualification__title">AI Ethics & UX Strategy</h3>
-                                <span class="qualification__subtitle">Udemy & Whizlabs</span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2026</span>
-                                <h3 class="qualification__title">Big Data, Artificial Intelligence, and Ethics</h3>
-                                <span class="qualification__subtitle">University of California, Davis </span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2025</span>
-                                <h3 class="qualification__title">AWS Cloud Architecting</h3>
-                                <span class="qualification__subtitle">Amazon Web Services</span>
-                            </div>
-                        </div>
-                    </div>
+                    <ol class="timeline__list is-on" id="panel-work" role="tabpanel" aria-labelledby="tab-work">
+                        <li>
+                            <span class="timeline__when">Oct 2025 — Present</span>
+                            <h3>Data Assurance &amp; Analysis</h3>
+                            <span class="timeline__where">EY (Ernst &amp; Young)</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">Nov 2025 — Present</span>
+                            <h3>Designer</h3>
+                            <span class="timeline__where">Java User Group, Ghana</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">2023 — Present</span>
+                            <h3>Graphic Designer</h3>
+                            <span class="timeline__where">Student associations, KNUST</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">2024 — 2025</span>
+                            <h3>Photographer</h3>
+                            <span class="timeline__where">NUBS, KNUST</span>
+                        </li>
+                    </ol>
 
-                    <div class="qualification__content" data-content id="work">
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">Oct 2025 - Present</span>
-                                <h3 class="qualification__title">Data Assurance & Analysis</h3>
-                                <span class="qualification__subtitle">EY (Ernst & Young)</span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">Nov 2025 - Present</span>
-                                <h3 class="qualification__title">Designer</h3>
-                                <span class="qualification__subtitle">Java User Groups - GH</span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2023 - Present</span>
-                                <h3 class="qualification__title">Graphic Designer</h3>
-                                <span class="qualification__subtitle">Student Associations - KNUST</span>
-                            </div>
-                        </div>
-                        <div class="qualification__item">
-                            <span class="qualification__dot"></span>
-                            <div>
-                                <span class="timeline__date">2024 - 2025</span>
-                                <h3 class="qualification__title">Photographer</h3>
-                                <span class="qualification__subtitle">NUBS - KNUST</span>
-                            </div>
-                        </div>
-                    </div>
+                    <ol class="timeline__list" id="panel-education" role="tabpanel" aria-labelledby="tab-education"
+                        hidden>
+                        <li>
+                            <span class="timeline__when">2022 — 2025</span>
+                            <h3>BSc Computer Engineering</h3>
+                            <span class="timeline__where">KNUST</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">2026</span>
+                            <h3>Big Data, Artificial Intelligence and Ethics</h3>
+                            <span class="timeline__where">University of California, Davis</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">2026</span>
+                            <h3>AI Ethics &amp; UX Strategy</h3>
+                            <span class="timeline__where">Udemy and Whizlabs</span>
+                        </li>
+                        <li>
+                            <span class="timeline__when">2025</span>
+                            <h3>AWS Cloud Architecting</h3>
+                            <span class="timeline__where">Amazon Web Services</span>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </section>
 
-        <!-- Skills -->
-        <section class="skills section" id="skills">
-            <div class="container">
-                <span class="section__eyebrow fade-in">My technical level</span>
-                <h2 class="section__title fade-in">Skills</h2>
+        <!-- ===================== 02 SKILLS ===================== -->
+        <section class="band" id="skills">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">02 <span>/</span> Skills</p>
+                    <h2 class="band__title">What I actually work in</h2>
+                </header>
 
-                <div class="skills__container grid fade-in">
+                <div class="stack">
+                    <section class="stack__col reveal">
+                        <h3>Engineering</h3>
+                        <ul>
+                            <li>React, Vue, React Native</li>
+                            <li>Node.js and Express</li>
+                            <li>TypeScript and JavaScript</li>
+                            <li>Python and FastAPI</li>
+                            <li>REST API design</li>
+                            <li>Git, Linux and macOS CLI</li>
+                        </ul>
+                    </section>
 
-                    <!-- Category 1: Full-Stack Engineering -->
-                    <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            <i class="uil uil-brackets-curly skills__icon" aria-hidden="true"></i>
-                            <div>
-                                <h3 class="skills__title">Full-Stack Engineering</h3>
-                                <span class="skills__subtitle">Bringing ideas to life through code</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
-                        </div>
-                        <div class="skills__list">
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>React, Vue & React Native</span><span>90%</span></div>
-                                <div class="skills__bar"><span style="width:90%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Node.js & Express</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>TypeScript & JavaScript</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Python & FastAPI</span><span>80%</span></div>
-                                <div class="skills__bar"><span style="width:80%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Linux/macOS CLI & Git</span><span>90%</span></div>
-                                <div class="skills__bar"><span style="width:90%"></span></div>
-                            </div>
-                        </div>
-                    </div>
+                    <section class="stack__col reveal">
+                        <h3>Data and AI</h3>
+                        <ul>
+                            <li>Alteryx workflows</li>
+                            <li>PostgreSQL and SQLite</li>
+                            <li>Data cleaning and auditing</li>
+                            <li>Prompt engineering</li>
+                            <li>Business intelligence reporting</li>
+                        </ul>
+                    </section>
 
-                    <!-- Category 2: Data Analysis & AI -->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-chart-growth-alt skills__icon" aria-hidden="true"></i>
-                            <div>
-                                <h3 class="skills__title">Data Analysis & AI</h3>
-                                <span class="skills__subtitle">Advanced automated workflows</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
-                        </div>
-                        <div class="skills__list">
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Alteryx Workflows</span><span>90%</span></div>
-                                <div class="skills__bar"><span style="width:90%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Prompt Engineering</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>PostgreSQL & SQLite</span><span>80%</span></div>
-                                <div class="skills__bar"><span style="width:80%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Data Cleaning & Auditing</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 3: UI/UX & Creative Design -->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-swatchbook skills__icon" aria-hidden="true"></i>
-                            <div>
-                                <h3 class="skills__title">UI/UX & Creative Design</h3>
-                                <span class="skills__subtitle">Creative solutions for digital products</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
-                        </div>
-                        <div class="skills__list">
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Figma & Framer</span><span>90%</span></div>
-                                <div class="skills__bar"><span style="width:90%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>UI/UX Architecture</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Photography</span><span>85%</span></div>
-                                <div class="skills__bar"><span style="width:80%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Adobe Photoshop & Lightroom</span><span>85%</span>
-                                </div>
-                                <div class="skills__bar"><span style="width:85%"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles"><span>Motion Graphics (AE & Premiere)</span><span>70%</span>
-                                </div>
-                                <div class="skills__bar"><span style="width:70%"></span></div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <section class="stack__col reveal">
+                        <h3>Design and image</h3>
+                        <ul>
+                            <li>Figma and Framer</li>
+                            <li>UI/UX architecture</li>
+                            <li>Brand and print design</li>
+                            <li>Event and portrait photography</li>
+                            <li>Photoshop and Lightroom</li>
+                            <li>After Effects and Premiere</li>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section class="services section" id="services">
-            <div class="container">
-                <span class="section__eyebrow fade-in">What I offer</span>
-                <h2 class="section__title fade-in">Services</h2>
+        <!-- ===================== 03 SERVICES ===================== -->
+        <section class="band" id="services">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">03 <span>/</span> Services</p>
+                    <h2 class="band__title">How I can help</h2>
+                </header>
 
-                <div class="services__grid grid">
-                    <div class="glass-card service-card fade-in">
-                        <i class="uil uil-web-grid service__icon" aria-hidden="true"></i>
-                        <h3 class="service__title">UI/UX Designer</h3>
-                        <button class="service__button" data-modal="0">View More <i class="uil uil-arrow-right"
-                                aria-hidden="true"></i></button>
-                    </div>
-                    <div class="glass-card service-card fade-in">
-                        <i class="uil uil-arrow service__icon" aria-hidden="true"></i>
-                        <h3 class="service__title">Full-Stack Engineer</h3>
-                        <button class="service__button" data-modal="1">View More <i class="uil uil-arrow-right"
-                                aria-hidden="true"></i></button>
-                    </div>
-                    <div class="glass-card service-card fade-in">
-                        <i class="uil uil-chart-growth-alt service__icon" aria-hidden="true"></i>
-                        <h3 class="service__title">Data Analyst</h3>
-                        <button class="service__button" data-modal="2">View More <i class="uil uil-arrow-right"
-                                aria-hidden="true"></i></button>
-                    </div>
-                    <div class="glass-card service-card fade-in">
-                        <i class="uil uil-pen service__icon" aria-hidden="true"></i>
-                        <h3 class="service__title">Graphic Designer</h3>
-                        <button class="service__button" data-modal="3">View More <i class="uil uil-arrow-right"
-                                aria-hidden="true"></i></button>
-                    </div>
-                </div>
+                <div class="offers reveal">
+                    <details class="offer" name="offer" open>
+                        <summary>
+                            <h3>Full-stack engineering</h3>
+                            <svg class="ico offer__mark" aria-hidden="true"><use href="#i-down" /></svg>
+                        </summary>
+                        <div class="offer__body">
+                            <ul>
+                                <li>Custom web and mobile applications</li>
+                                <li>Secure RESTful API architecture</li>
+                                <li>Database design and relational mapping</li>
+                                <li>Front-to-back integration</li>
+                            </ul>
+                        </div>
+                    </details>
 
-                <!-- Modals -->
-                <div class="service__modal" data-modal-view="0">
-                    <div class="service__modal-content glass-card">
-                        <i class="uil uil-times service__modal-close" aria-label="Close" role="button" tabindex="0"></i>
-                        <h4>UI/UX Designer</h4>
-                        <ul>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> High-fidelity wireframing &
-                                prototyping</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Seamless UX element interactions
-                            </li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> User-centric editorial
-                                aesthetics</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Premium brand positioning</li>
-                        </ul>
-                    </div>
-                </div>
+                    <details class="offer" name="offer">
+                        <summary>
+                            <h3>UI/UX design</h3>
+                            <svg class="ico offer__mark" aria-hidden="true"><use href="#i-down" /></svg>
+                        </summary>
+                        <div class="offer__body">
+                            <ul>
+                                <li>High-fidelity wireframing and prototyping</li>
+                                <li>Interaction and motion design</li>
+                                <li>Editorial, user-centric visual systems</li>
+                                <li>Brand positioning for digital products</li>
+                            </ul>
+                        </div>
+                    </details>
 
-                <div class="service__modal" data-modal-view="1">
-                    <div class="service__modal-content glass-card">
-                        <i class="uil uil-times service__modal-close" aria-label="Close" role="button" tabindex="0"></i>
-                        <h4>Full-Stack Engineer</h4>
-                        <ul>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Custom web & mobile application
-                                development</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Secure RESTful API architecture
-                            </li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Database design & relational
-                                mapping</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Seamless front-to-back
-                                integration</li>
-                        </ul>
-                    </div>
-                </div>
+                    <details class="offer" name="offer">
+                        <summary>
+                            <h3>Data analysis</h3>
+                            <svg class="ico offer__mark" aria-hidden="true"><use href="#i-down" /></svg>
+                        </summary>
+                        <div class="offer__body">
+                            <ul>
+                                <li>Automated data cleaning in Alteryx</li>
+                                <li>Complex workflow engineering</li>
+                                <li>AI prompt engineering for bespoke datasets</li>
+                                <li>Reporting that leads somewhere actionable</li>
+                            </ul>
+                        </div>
+                    </details>
 
-                <div class="service__modal" data-modal-view="2">
-                    <div class="service__modal-content glass-card">
-                        <i class="uil uil-times service__modal-close" aria-label="Close" role="button" tabindex="0"></i>
-                        <h4>Data Analyst</h4>
-                        <ul>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Automated data cleaning via
-                                Alteryx</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Complex data workflow
-                                engineering</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> AI prompt engineering for custom
-                                data sets</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Actionable business intelligence
-                                reporting</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service__modal" data-modal-view="3">
-                    <div class="service__modal-content glass-card">
-                        <i class="uil uil-times service__modal-close" aria-label="Close" role="button" tabindex="0"></i>
-                        <h4>Graphic Designer</h4>
-                        <ul>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Premium corporate branding &
-                                identity</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> High-impact flyers, posters &
-                                banners</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Advanced photo editing &
-                                retouching</li>
-                            <li><i class="uil uil-check-circle" aria-hidden="true"></i> Intriguing, creative campaign
-                                designs</li>
-                        </ul>
-                    </div>
+                    <details class="offer" name="offer">
+                        <summary>
+                            <h3>Graphic design and photography</h3>
+                            <svg class="ico offer__mark" aria-hidden="true"><use href="#i-down" /></svg>
+                        </summary>
+                        <div class="offer__body">
+                            <ul>
+                                <li>Corporate branding and identity</li>
+                                <li>Flyers, posters and campaign artwork</li>
+                                <li>Event, portrait and lifestyle photography</li>
+                                <li>Photo editing and retouching</li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- Process -->
-        <section class="process section" id="process">
-            <div class="container">
-                <span class="section__eyebrow fade-in">HOW I WORK</span>
-                <h2 class="section__title fade-in">From idea to impact</h2>
-                <div class="process__grid">
-                    <article class="process__step glass-card fade-in">
-                        <span>01</span>
+        <!-- ===================== 04 PROCESS ===================== -->
+        <section class="band" id="process">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">04 <span>/</span> Process</p>
+                    <h2 class="band__title">From idea to impact</h2>
+                </header>
+
+                <ol class="steps reveal">
+                    <li>
+                        <span class="steps__no">01</span>
                         <h3>Discover</h3>
-                        <p>Clarify the audience, objectives, and the outcome that matters most.</p>
-                    </article>
-                    <article class="process__step glass-card fade-in">
-                        <span>02</span>
+                        <p>Clarify the audience, the objective, and the outcome that actually matters.</p>
+                    </li>
+                    <li>
+                        <span class="steps__no">02</span>
                         <h3>Design</h3>
-                        <p>Shape a clear visual direction and user experience before building.</p>
-                    </article>
-                    <article class="process__step glass-card fade-in">
-                        <span>03</span>
+                        <p>Settle the visual direction and the user experience before a line is built.</p>
+                    </li>
+                    <li>
+                        <span class="steps__no">03</span>
                         <h3>Build</h3>
-                        <p>Turn the approved direction into a responsive, purposeful digital product.</p>
-                    </article>
-                    <article class="process__step glass-card fade-in">
-                        <span>04</span>
+                        <p>Turn the approved direction into a responsive, working product.</p>
+                    </li>
+                    <li>
+                        <span class="steps__no">04</span>
                         <h3>Refine</h3>
-                        <p>Test the details, improve the experience, and prepare for a confident launch.</p>
-                    </article>
-                </div>
+                        <p>Test the details, tighten the experience, and prepare a confident launch.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <!-- Portfolio -->
-        <section class="showcase section" id="portfolio">
-            <div class="container showcase__grid">
+        <!-- ===================== 05 WORK ===================== -->
+        <section class="band" id="work">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">05 <span>/</span> Work</p>
+                    <h2 class="band__title">Selected projects</h2>
+                </header>
 
-                <div class="swiper antigravity-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper" href="https://www.pinterest.com/pin/1036672407977833874/" target="_blank" rel="noopener" aria-label="View Birthday Flyer project">
-                                <img src="assets/img/Birthday%20Flyer.jpeg" alt="Birthday flyer design" loading="lazy" width="1200" height="1500">
-                                <div class="ag-slide-overlay">
-                                    <h3 class="ag-typed-text">Birthday Flyer</h3>
-                                    <div class="ag-play-cursor"><i class="uil uil-play"></i> View Project</div>
-                                </div>
-                            </a>
+                <div class="work">
+                    <a class="piece piece--wide reveal" href="https://www.nubsknust.org/" target="_blank"
+                        rel="noopener">
+                        <figure class="piece__shot">
+                            <img src="https://nubsknust.org/assets/og-image.jpg" alt="NUBS KNUST website" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>NUBS KNUST <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></h3>
+                            <p>A full digital home for the National Union of Baptist Students at KNUST — ministry
+                                information, events, resources and media.</p>
+                            <p class="piece__meta">Web design · Community platform</p>
                         </div>
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper" href="https://www.pinterest.com/pin/1036672407977833648/" target="_blank" rel="noopener" aria-label="View T-Shirt Design project">
-                                <img src="assets/img/T%20Shirt%20Design.jpeg" alt="T-shirt design" loading="lazy" width="1200" height="1200">
-                                <div class="ag-slide-overlay">
-                                    <h3 class="ag-typed-text">T-Shirt Design</h3>
-                                    <div class="ag-play-cursor"><i class="uil uil-play"></i> View Project</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper" href="https://www.figma.com/design/oRH3VftJPn5OpDBdUPITuQ/Uniconnect?node-id=0-1&amp;t=aYMpWB6YxgLpfUPe-1" target="_blank" rel="noopener" aria-label="View Mobile App UI UX project">
-                                <img src="assets/img/figma.png" alt="Mobile app UI/UX" loading="lazy" width="1200" height="800">
-                                <div class="ag-slide-overlay">
-                                    <h3 class="ag-typed-text">Mobile App UI/UX</h3>
-                                    <div class="ag-play-cursor"><i class="uil uil-play"></i> View Project</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper" href="https://gideon-nyarko.github.io/responsive-portfolio-gideon/" target="_blank" rel="noopener" aria-label="View Portfolio Website project">
-                                <img src="assets/img/port.png" alt="Portfolio Website" loading="lazy" width="1200" height="800">
-                                <div class="ag-slide-overlay">
-                                    <h3 class="ag-typed-text">Portfolio Website</h3>
-                                    <div class="ag-play-cursor"><i class="uil uil-play"></i> View Project</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper project-preview project-preview--nubs"
-                                href="https://www.nubsknust.org/" target="_blank" rel="noopener"
-                                aria-label="Visit NUBS KNUST website">
-                                <img src="https://nubsknust.org/assets/og-image.jpg" alt="NUBS KNUST website preview" loading="lazy" width="1200" height="630">
-                                <span class="project-preview__eyebrow">Community website</span>
-                                <strong>NUBS<br>KNUST</strong>
-                                <span class="project-preview__footer">National Union of Baptist Students <i class="uil uil-arrow-up-right"></i></span>
-                                <span class="ag-play-cursor"><i class="uil uil-play"></i> View Project</span>
-                            </a>
-                        </div>
-                        <div class="swiper-slide ag-slide">
-                            <a class="ag-slide-wrapper project-preview project-preview--tempfirm"
-                                href="https://tempfirm.vercel.app/" target="_blank" rel="noopener"
-                                aria-label="Visit Kesse Boateng and Company website">
-                                <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Kesse Boateng and Company website preview" loading="lazy" width="1200" height="800">
-                                <span class="project-preview__eyebrow">Professional services website</span>
-                                <strong>Kesse<br>Boateng &amp; Co.</strong>
-                                <span class="project-preview__footer">ICAG-certified audit &amp; advisory <i class="uil uil-arrow-up-right"></i></span>
-                                <span class="ag-play-cursor"><i class="uil uil-play"></i> View Project</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ag-copy-wrapper">
-                    <div class="ag-copy-content">
-                        <div class="ag-copy is-active" data-index="0">
-                            <strong>Birthday Flyer Design</strong>
-                            <p>A nice design of a birthday flyer crafted for high visual impact.</p>
-                            <span class="ag-project-meta">Brand communication · Print design</span>
-                            <a href="https://www.pinterest.com/pin/1036672407977833874/" target="_blank" rel="noopener"
-                                class="ag-arrow-link">View case <i class="uil uil-arrow-right"></i></a>
-                        </div>
-                        <div class="ag-copy" data-index="1">
-                            <strong>T-Shirt Design</strong>
-                            <p>A creative, print-ready design built for modern streetwear aesthetics.</p>
-                            <span class="ag-project-meta">Apparel design · Art direction</span>
-                            <a href="https://www.pinterest.com/pin/1036672407977833648/" target="_blank" rel="noopener"
-                                class="ag-arrow-link">View case <i class="uil uil-arrow-right"></i></a>
-                        </div>
-                        <div class="ag-copy" data-index="2">
-                            <strong>Mobile App UI/UX</strong>
-                            <p>Clean, user-centric interface design prioritizing seamless navigation.</p>
-                            <span class="ag-project-meta">Product design · UI/UX</span>
-                            <a href="https://www.figma.com/design/oRH3VftJPn5OpDBdUPITuQ/Uniconnect?node-id=0-1&t=aYMpWB6YxgLpfUPe-1"
-                                target="_blank" rel="noopener" class="ag-arrow-link">View case <i
-                                    class="uil uil-arrow-right"></i></a>
-                        </div>
-                        <div class="ag-copy" data-index="3">
-                            <strong>Portfolio Website</strong>
-                            <p>A responsive, modern portfolio website built to showcase creative work.</p>
-                            <span class="ag-project-meta">Web design · Front-end development</span>
-                            <a href="https://gideon-nyarko.github.io/responsive-portfolio-gideon/" target="_blank"
-                                rel="noopener" class="ag-arrow-link">View case <i class="uil uil-arrow-right"></i></a>
-                        </div>
-                        <div class="ag-copy" data-index="4">
-                            <strong>NUBS KNUST</strong>
-                            <p>A full digital home for the National Union of Baptist Students at KNUST, with ministry information, events, resources, and media.</p>
-                            <span class="ag-project-meta">Web design · Community platform</span>
-                            <a href="https://www.nubsknust.org/" target="_blank" rel="noopener" class="ag-arrow-link">Visit website <i class="uil uil-arrow-up-right"></i></a>
-                        </div>
-                        <div class="ag-copy" data-index="5">
-                            <strong>Kesse Boateng &amp; Co.</strong>
-                            <p>A polished website for an ICAG-certified audit, tax, and advisory firm, designed to build confidence with Ghanaian enterprises.</p>
-                            <span class="ag-project-meta">Web design · Professional services</span>
-                            <a href="https://tempfirm.vercel.app/" target="_blank" rel="noopener" class="ag-arrow-link">Visit website <i class="uil uil-arrow-up-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="ag-slider-controls" aria-label="Portfolio carousel controls">
-                        <button class="ag-btn-prev" type="button" aria-label="Previous project"><span aria-hidden="true">&#8592;</span></button>
-                        <button class="ag-btn-next" type="button" aria-label="Next project"><span aria-hidden="true">&#8594;</span></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Photography -->
-        <section class="photography section" id="photography">
-            <div class="container">
-                <span class="section__subtitle fade-in">THROUGH MY LENS</span>
-                <h2 class="section__title fade-in">Photography</h2>
-                <p class="photography__intro fade-in">A curated selection of portrait, event, and lifestyle work. Full collections are available on Pixieset.</p>
-                <div class="photography__gallery" aria-label="Photography sample gallery">
-                    <a class="photography__sample fade-in" href="https://deongraphx.pixieset.com/tweekday3/" target="_blank" rel="noopener" aria-label="View Tweek Day 3 gallery on Pixieset">
-                        <img src="https://images.pixieset.com/48597779/fcbcf3608dc74a24c8c11d681e7385d3-medium.JPG" alt="Tweek Day 3 photography sample" loading="lazy" width="1200" height="800">
-                        <span>01</span><strong>Tweek Day 3 <i class="uil uil-arrow-up-right"></i></strong>
                     </a>
-                    <a class="photography__sample fade-in" href="https://deongraphx.pixieset.com/defensepanel5/" target="_blank" rel="noopener" aria-label="View Defense Panel 5 gallery on Pixieset">
-                        <img src="https://images.pixieset.com/87555679/56543a8979789c6d3af84f033135c8cd-medium.JPG" alt="Defense Panel 5 photography sample" loading="lazy" width="1200" height="800">
-                        <span>02</span><strong>Defense Panel 5 <i class="uil uil-arrow-up-right"></i></strong>
+
+                    <a class="piece piece--wide reveal" href="https://tempfirm.vercel.app/" target="_blank"
+                        rel="noopener">
+                        <figure class="piece__shot">
+                            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&amp;fit=crop&amp;w=900&amp;q=70"
+                                alt="Kesse Boateng and Company website" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>Kesse Boateng &amp; Co. <svg class="ico" aria-hidden="true">
+                                    <use href="#i-external" /></svg></h3>
+                            <p>A website for an ICAG-certified audit, tax and advisory firm, built to earn trust with
+                                Ghanaian enterprises.</p>
+                            <p class="piece__meta">Web design · Professional services</p>
+                        </div>
                     </a>
-                    <a class="photography__sample fade-in" href="https://deongraphx42.pixieset.com/jesushighschooloutreach/" target="_blank" rel="noopener" aria-label="View Jesus High School Outreach gallery on Pixieset">
-                        <img src="https://images.pixieset.com/03336659/2a60fb4ae045e86514f012c8a05eb752-medium.JPG" alt="Jesus High School Outreach photography sample" loading="lazy" width="1200" height="800">
-                        <span>03</span><strong>Jesus High School Outreach <i class="uil uil-arrow-up-right"></i></strong>
+
+                    <a class="piece reveal" href="https://www.figma.com/design/oRH3VftJPn5OpDBdUPITuQ/Uniconnect?node-id=0-1&amp;t=aYMpWB6YxgLpfUPe-1"
+                        target="_blank" rel="noopener">
+                        <figure class="piece__shot">
+                            <img src="assets/img/figma.png" alt="Uniconnect mobile app interface designs" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>Uniconnect <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></h3>
+                            <p>Mobile app interface design built around clear navigation and a calm information
+                                hierarchy.</p>
+                            <p class="piece__meta">Product design · UI/UX</p>
+                        </div>
+                    </a>
+
+                    <a class="piece reveal" href="https://gideon-nyarko.github.io/responsive-portfolio-gideon/"
+                        target="_blank" rel="noopener">
+                        <figure class="piece__shot">
+                            <img src="assets/img/port.png" alt="Earlier portfolio website" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>Portfolio, v1 <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></h3>
+                            <p>The first version of this site — a responsive single-page build, kept online as a
+                                reference point.</p>
+                            <p class="piece__meta">Web design · Front-end</p>
+                        </div>
+                    </a>
+
+                    <a class="piece reveal" href="https://www.pinterest.com/pin/1036672407977833874/" target="_blank"
+                        rel="noopener">
+                        <figure class="piece__shot piece__shot--tall">
+                            <img src="assets/img/Birthday%20Flyer.jpeg" alt="Birthday flyer design" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>Birthday flyer <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg>
+                            </h3>
+                            <p>Event artwork built for high visual impact at small sizes, where most people will
+                                actually see it.</p>
+                            <p class="piece__meta">Brand communication · Print</p>
+                        </div>
+                    </a>
+
+                    <a class="piece reveal" href="https://www.pinterest.com/pin/1036672407977833648/" target="_blank"
+                        rel="noopener">
+                        <figure class="piece__shot piece__shot--tall">
+                            <img src="assets/img/T%20Shirt%20Design.jpeg" alt="T-shirt graphic design" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="piece__text">
+                            <h3>T-shirt graphic <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg>
+                            </h3>
+                            <p>A print-ready apparel design drawing on modern streetwear typography.</p>
+                            <p class="piece__meta">Apparel design · Art direction</p>
+                        </div>
                     </a>
                 </div>
-                <p class="photography__note">Select a photograph to view the full shoot on Pixieset.</p>
             </div>
         </section>
 
-        <!-- Project CTA -->
-        <section class="project-cta section">
-            <div class="container project-cta__container glass-card fade-in">
-                <div>
-                    <h2>You have a new project?</h2>
-                    <p>Contact me now and get a 30% discount on your new project.</p>
-                    <a href="#contact" class="button">Contact Me <i class="uil uil-message button__icon"
-                            aria-hidden="true"></i></a>
+        <!-- ===================== 06 PHOTOGRAPHY ===================== -->
+        <section class="band band--dense" id="photography">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">06 <span>/</span> Photography</p>
+                    <h2 class="band__title">Through my lens</h2>
+                    <p class="band__note">Portrait, event and lifestyle work. Full collections live on Pixieset —
+                        select a frame to open the shoot.</p>
+                </header>
+
+                <div class="sheet">
+                    <a class="frame reveal" href="https://deongraphx.pixieset.com/tweekday3/" target="_blank"
+                        rel="noopener">
+                        <img src="https://images.pixieset.com/48597779/fcbcf3608dc74a24c8c11d681e7385d3-medium.JPG"
+                            alt="Tweek Day 3 event photography" loading="lazy" decoding="async">
+                        <span class="frame__cap"><b>01</b> Tweek Day 3
+                            <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></span>
+                    </a>
+                    <a class="frame reveal" href="https://deongraphx.pixieset.com/defensepanel5/" target="_blank"
+                        rel="noopener">
+                        <img src="https://images.pixieset.com/87555679/56543a8979789c6d3af84f033135c8cd-medium.JPG"
+                            alt="Defense Panel 5 photography" loading="lazy" decoding="async">
+                        <span class="frame__cap"><b>02</b> Defense Panel 5
+                            <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></span>
+                    </a>
+                    <a class="frame reveal" href="https://deongraphx42.pixieset.com/jesushighschooloutreach/"
+                        target="_blank" rel="noopener">
+                        <img src="https://images.pixieset.com/03336659/2a60fb4ae045e86514f012c8a05eb752-medium.JPG"
+                            alt="Jesus High School Outreach photography" loading="lazy" decoding="async">
+                        <span class="frame__cap"><b>03</b> Jesus High School Outreach
+                            <svg class="ico" aria-hidden="true"><use href="#i-external" /></svg></span>
+                    </a>
                 </div>
-                <img src="assets/img/about.jpg" alt="" class="project-cta__img" loading="lazy" width="1200" height="800">
             </div>
         </section>
 
-        <!-- Contact -->
-        <section class="contact section" id="contact">
-            <div class="container">
-                <span class="section__eyebrow fade-in">Get in touch</span>
-                <h2 class="section__title fade-in">Contact Me</h2>
+        <!-- ===================== 07 CONTACT ===================== -->
+        <section class="band" id="contact">
+            <div class="shell">
+                <header class="band__head reveal">
+                    <p class="band__index">07 <span>/</span> Contact</p>
+                    <h2 class="band__title">Tell me what you're building</h2>
+                </header>
 
-                <div class="contact__grid grid">
-                    <div class="contact__info fade-in">
-                        <div class="contact__item">
-                            <i class="uil uil-phone" aria-hidden="true"></i>
-                            <div>
-                                <h3>Call Me</h3><span>+233-256-643-105</span>
-                            </div>
-                        </div>
-                        <div class="contact__item">
-                            <i class="uil uil-envelope" aria-hidden="true"></i>
-                            <div>
-                                <h3>Email</h3><span>nkgnyarko@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact__item">
-                            <i class="uil uil-map-marker" aria-hidden="true"></i>
-                            <div>
-                                <h3>Location</h3><span>Accra, Ghana</span>
-                            </div>
+                <div class="contact">
+                    <div class="contact__direct reveal">
+                        <p class="lede">The fastest route is email. If it's urgent, WhatsApp me — I'm on GMT, so
+                            mornings in Accra are best.</p>
+
+                        <ul class="contact__list">
+                            <li>
+                                <svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg>
+                                <a href="mailto:nkgnyarko@gmail.com">nkgnyarko@gmail.com</a>
+                            </li>
+                            <li>
+                                <svg class="ico" aria-hidden="true"><use href="#i-phone" /></svg>
+                                <a href="tel:+233256643105">+233 256 643 105</a>
+                            </li>
+                            <li>
+                                <svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>
+                                <span>Accra, Ghana</span>
+                            </li>
+                        </ul>
+
+                        <div class="contact__social">
+                            <a href="https://www.linkedin.com/in/nkgnyarko" target="_blank" rel="noopener"
+                                aria-label="LinkedIn"><svg class="ico" aria-hidden="true">
+                                    <use href="#i-linkedin" /></svg></a>
+                            <a href="https://www.instagram.com/deongrphx/" target="_blank" rel="noopener"
+                                aria-label="Instagram"><svg class="ico" aria-hidden="true">
+                                    <use href="#i-instagram" /></svg></a>
+                            <a href="https://www.pinterest.com/deongraphx/" target="_blank" rel="noopener"
+                                aria-label="Pinterest"><svg class="ico" aria-hidden="true">
+                                    <use href="#i-pinterest" /></svg></a>
+                            <a href="https://wa.link/4dx6y3" target="_blank" rel="noopener" aria-label="WhatsApp"><svg
+                                    class="ico" aria-hidden="true"><use href="#i-whatsapp" /></svg></a>
                         </div>
                     </div>
 
-                    <form id="contact-form" class="contact__form fade-in">
-                        <div class="contact__row">
-                            <div class="form__group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" class="form__input" required>
-                            </div>
-                            <div class="form__group">
+                    <form id="contact-form" class="form reveal" novalidate>
+                        <div class="form__row">
+                            <p class="field">
+                                <label for="name">Your name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </p>
+                            <p class="field">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form__input" required>
-                            </div>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </p>
                         </div>
-                        <div class="form__group">
-                            <label for="project">Project</label>
-                            <input type="text" id="project" name="project" class="form__input" required>
-                        </div>
-                        <div class="form__group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" class="form__input" required></textarea>
-                        </div>
-                        <button type="submit" class="button form__button">Send Message <i
-                                class="uil uil-message button__icon" aria-hidden="true"></i></button>
+                        <p class="field">
+                            <label for="project">What's the project?</label>
+                            <input type="text" id="project" name="project" placeholder="e.g. Brand site for a law firm"
+                                required>
+                        </p>
+                        <p class="field">
+                            <label for="message">Details</label>
+                            <textarea id="message" name="message" rows="6"
+                                placeholder="Scope, timeline, budget range — whatever you have so far."
+                                required></textarea>
+                        </p>
+                        <button type="submit" class="btn btn--solid form__send">Send message</button>
+                        <p class="form__note">I reply to everything, usually within two working days.</p>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer__container">
-            <div>
-                <h3 class="footer__title">Gideon</h3>
-                <span class="footer__subtitle">Designer &amp; Developer</span>
+    <footer class="foot">
+        <div class="shell foot__inner">
+            <div class="foot__id">
+                <p class="foot__name">Gideon Nyarko</p>
+                <p class="foot__role">Engineer, designer, photographer — Accra, Ghana</p>
             </div>
-            <ul class="footer__links flex">
-                <li><a href="#services" class="footer__link">Services</a></li>
-                <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                <li><a href="#photography" class="footer__link">Photography</a></li>
-                <li><a href="#contact" class="footer__link">Contact</a></li>
+            <ul class="foot__nav">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#photography">Photography</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="footer__socials flex">
-                <a href="mailto:nkgnyarko@gmail.com" aria-label="Email"><i class="uil uil-envelope"></i></a>
-                <a href="https://www.instagram.com/deongrphx/" target="_blank" rel="noopener" aria-label="Instagram"><i
-                        class="uil uil-instagram"></i></a>
-                <a href="https://wa.link/4dx6y3" target="_blank" rel="noopener" aria-label="WhatsApp"><i
-                        class="uil uil-whatsapp"></i></a>
-            </div>
+            <p class="foot__copy">© <span id="year">2026</span> Gideon Nyarko</p>
         </div>
-        <p class="footer__copy">&copy; <span id="year">2026</span> Gideon Nyarko. All rights reserved.</p>
     </footer>
 
-    <a href="#home" class="scrollup" id="scroll-up" aria-label="Scroll to top">
-        <i class="uil uil-arrow-up" aria-hidden="true"></i>
+    <a href="#home" class="to-top" id="to-top" aria-label="Back to top">
+        <svg class="ico" aria-hidden="true"><use href="#i-up" /></svg>
     </a>
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
 </body>
 
 </html>
