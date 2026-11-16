@@ -486,6 +486,19 @@ body[data-theme="light"] .ico--sun {
     color: var(--paper);
 }
 
+.identity-line {
+    margin-bottom: 1rem;
+    color: var(--brass) !important;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.identity-line span {
+    color: var(--rule);
+    padding-inline: 0.35rem;
+}
+
 .about__links {
     display: flex;
     flex-wrap: wrap;
@@ -835,6 +848,44 @@ body[data-theme="light"] .ico--sun {
 
 .frame:hover .frame__cap {
     color: var(--paper);
+}
+
+.brand-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule-soft);
+    color: var(--paper-dim);
+    font-size: 0.875rem;
+}
+
+.brand-links p {
+    max-width: 52ch;
+}
+
+.brand-links strong {
+    color: var(--paper);
+    font-weight: 500;
+}
+
+.brand-links > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.brand-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--paper);
+}
+
+.brand-links a:hover {
+    color: var(--brass);
 }
 
 /* ---------- CONTACT ---------- */
@@ -1207,6 +1258,11 @@ body[data-theme="light"] .ico--sun {
 
     .sheet {
         grid-template-columns: 1fr;
+    }
+
+    .brand-links {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .frame img {

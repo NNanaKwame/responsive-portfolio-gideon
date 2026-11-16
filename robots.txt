@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nkgnyarko.netlify.app/sitemap.xml
+Sitemap: https://gideon-nyarko.netlify.app/sitemap.xml

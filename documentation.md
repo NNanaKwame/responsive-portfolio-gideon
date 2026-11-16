@@ -4,7 +4,7 @@
 
 This repository contains the static personal portfolio for Gideon Nyarko: a Ghana-based designer, full-stack engineer, data analyst, graphic designer, and photographer. The portfolio is intentionally a single scrolling page that combines a high-end dark creative aesthetic with concise, professional project and service information.
 
-The production site is hosted at [nkgnyarko.netlify.app](https://nkgnyarko.netlify.app). The Git remote is `https://github.com/NNanaKwame/responsive-portfolio-gideon.git` and the primary branch is `main`.
+The production site is hosted at [gideon-nyarko.netlify.app](https://gideon-nyarko.netlify.app). The Git remote is `https://github.com/NNanaKwame/responsive-portfolio-gideon.git` and the primary branch is `main`.
 
 ## Technical architecture
 
